@@ -1,0 +1,227 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TujuanActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/bluesky"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Tanggal -->
+    <TextView
+        android:id="@+id/textViewSelectedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="30sp"
+        android:text="Pilih Tanggal:"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppinsbold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Button untuk memilih tanggal dengan DatePickerDialog -->
+
+    <!-- Spinner Asal -->
+    <DatePicker
+        android:id="@+id/datePickertujuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/date_picker_bg"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSelectedDate" />
+
+    <TextView
+        android:id="@+id/textViewAsal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Stasiun Asal:"
+        android:fontFamily="@font/poppinsregular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datePickertujuan" />
+
+    <Spinner
+        android:id="@+id/spinnerStasiunAsal"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAsal" />
+
+    <TextView
+        android:id="@+id/textViewTujuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Stasiun Tujuan:"
+        android:fontFamily="@font/poppinsregular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerStasiunAsal" />
+
+    <!-- Spinner Tujuan -->
+    <Spinner
+        android:id="@+id/spinnerStasiunTujuan"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTujuan" />
+
+    <!-- RadioGroup untuk Kelas Kereta -->
+    <TextView
+        android:id="@+id/textViewKelasKereta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Kelas Kereta:"
+        android:fontFamily="@font/poppinsregular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerStasiunTujuan" />
+
+    <Spinner
+        android:id="@+id/spinnerKelas"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKelasKereta" />
+
+    <!-- ScrollView untuk Toggle Buttons -->
+    <TextView
+        android:id="@+id/textViewPaketTambahan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Paket Tambahan:"
+        android:fontFamily="@font/poppinsregular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerKelas" />
+
+    <HorizontalScrollView
+        android:id="@+id/hscroll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPaketTambahan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutPaketTambahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Tambahkan Toggle Buttons untuk paket tambahan di sini -->
+            <ToggleButton
+                android:id="@+id/toggleButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paket Hotel"
+                android:textOn="Paket Hotel"
+                android:textOff="Paket Hotel"
+                android:fontFamily="@font/poppinsregular" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paket Jasa Porter"
+                android:textOff="Paket Jasa Porter"
+                android:textOn="Paket Jasa Porter"
+                android:fontFamily="@font/poppinsregular" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton3"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:text="Paket Extra Bagasi"
+                android:textOff="Paket Extra Bagasi"
+                android:textOn="Paket Extra Bagasi"
+                android:fontFamily="@font/poppinsregular" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paket Minum"
+                android:textOn="Paket Minum"
+                android:textOff="Paket Minum"
+                android:fontFamily="@font/poppinsregular" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paket Makan 1x"
+                android:textOn="Paket Makan 1x"
+                android:textOff="Paket Makan 1x"
+                android:fontFamily="@font/poppinsregular" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paket Makan 2x"
+                android:textOn="Paket Makan 2x"
+                android:textOff="Paket Makan 2x"
+                android:fontFamily="@font/poppinsregular" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paket Snack"
+                android:textOn="Paket Snack"
+                android:textOff="Paket Snack"
+                android:fontFamily="@font/poppinsregular" />
+            <!-- Tambahkan Toggle Buttons lainnya di sini -->
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Total Harga -->
+
+    <!-- Tombol Pesan -->
+    <TextView
+        android:id="@+id/textViewTotalHarga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Total Harga:"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hscroll" />
+
+    <Button
+        android:id="@+id/btnPesan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/bluesky"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Checkout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTotalHarga" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
